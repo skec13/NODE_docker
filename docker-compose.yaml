@@ -1,0 +1,17 @@
+# file to compose the container
+version: "3"
+# services running in different containers
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: password123
+      POSTGRES_USER: user123
+      POSTGRES_DB: db123
+  # first build this image -> docker build -t my-node-app .
+  app:
+    image: my-node-app
+    ports:
+      - 13000:3000
+
+# docker-compose up
